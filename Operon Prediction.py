@@ -75,28 +75,20 @@ def predictOperon(y):
         file.sort_values(by = ['Gene','start'], inplace = True)
         return operons(file)
     
-print('QUESTION 1')
-print('')  
+
 print('E.COLI : ')
-print('')
 print("Operons in E.coli are:\n\n{}\n\nNumber of Operons in E.coli are: {}".format(predictOperon('E_coli_K12_MG1655.ptt')[0], predictOperon('E_coli_K12_MG1655.ptt')[1])) #2669
 print('')
 print("HALOBACTERIUM : ")
-print('')  
 print("Operons in Halobacterium are:\n\n{}\n\nNumber of Operons in Halobacterium are: {}".format(predictOperon('Halobacterium_NRC1.ptt')[0], predictOperon('Halobacterium_NRC1.ptt')[1])) #1464
 print('')
 print('SYNECHOCYSTIS : ')
-print('')  
 print("Operons in Synechocystis are:\n\n{}\n\nNumber of Operons in Synechocystis are: {}".format(predictOperon('Synechocystis_PCC6803_uid159873.ptt')[0], predictOperon('Synechocystis_PCC6803_uid159873.ptt')[1])) #2521
 print('')
 print('B_SUBTILIS : ')
-print('')  
 print("Operons in B_subtilis are:\n\n{}\n\nNumber of Operons in B_subtilis are: {}".format(predictOperon('B_subtilis_168.ptt')[0], predictOperon('B_subtilis_168.ptt')[1])) #2662  
 print('')  
-print('QUESTION 2')
-print('')
 print('CROP_MICROBIOME : ')
-print('')  
 print("Operons in Crop_Microbiome are:\n\n{}\n\nNumber of Operons in Crop_Microbiome are: {}".format(predictOperon('2088090036.gff')[0], predictOperon('2088090036.gff')[1])) #12108
  
     
