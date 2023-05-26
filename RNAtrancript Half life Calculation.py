@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
 import os
+from sklearn.linear_model import LinearRegression
 
 os.chdir(os.getcwd())
+# data contains all the 3 time courses in a single file, first read the file
 data = pd.read_csv('DecayTimecourse.txt',sep= '\t')
 
-
 # Splitting the data and natural log transformation of the data
-
 t1 = pd.DataFrame(data[data.columns[1:10]])
 t1.set_index(data['Time course #'], inplace= True)
 t1.dropna(how='all', inplace=True)
@@ -31,10 +31,6 @@ t3.drop('YORF', axis= 0, inplace=True)
 t3 = np.log(t3)
 
 # Regression fit to find the slope
-print(' ')
-print('QUESTION 1')
-from sklearn.linear_model import LinearRegression
-
 def regression(a):
     lm = LinearRegression()
     slope = []
@@ -59,7 +55,6 @@ print('TimeCourse3')
 print(slope_t3)
 
 # Calculating the half life
-
 Half_life1 = np.log(2)/slope_t1.rename(columns={'Slope':'Half life'})
 Half_life2 = np.log(2)/slope_t2.rename(columns={'Slope':'Half life'})
 Half_life3 = np.log(2)/slope_t3.rename(columns={'Slope':'Half life'})
@@ -72,8 +67,7 @@ print(Half_life2)
 print('Half lifes 3')
 print(Half_life3)
 
-# Calculating the Average T1/2 across all the data
-
+# Join all the 3 time courses half lives to calculate the Average T 1/2 across all the data
 me_12 = Half_life1.join(Half_life2,how = 'outer', lsuffix = 'Time course 1', rsuffix = 'Time course 2')
 Half_life = me_12.join(Half_life3,how = 'outer', rsuffix = 'Time course 3')
 
@@ -83,17 +77,15 @@ print(' ')
 print('The average Half-life over all the three time courses for each transcript :')
 print(Avg_Halflife)
 print(' ')
-print('QUESTION 2')
-print(' ')
-# considering only the top and bottom 10% of transcripts
 
+
+# considering only the top and bottom 10% of transcripts
 Top_Halflifes = pd.concat([Avg_Halflife.iloc[0:int(((len(Avg_Halflife)*10)/100))],
                            Avg_Halflife.iloc[len(Avg_Halflife)-int(((len(Avg_Halflife)*10)/100)) : len(Avg_Halflife)]])
 
 print('The top 10% and the bottom 10% ranked transcripts based on Half-lives : ')
 print(Top_Halflifes)
 
-#Top_Halflifes.to_csv('Half_Lifes.csv')
 
 
 
