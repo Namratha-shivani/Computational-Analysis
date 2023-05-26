@@ -7,6 +7,7 @@ import seaborn as sns
 
 os.chdir(os.getcwd())
 
+# Calculating the correaltion between cancer types
 def Pearson_Correlation(x, y=None):
     
   def mean(x):
@@ -59,8 +60,6 @@ def Pearson_Correlation(x, y=None):
     return pearsoncorr
   return pearson_corr(x,y)
 
-# QUESTION 1:
-
 matrix1 = pd.read_csv('matrix1.txt',sep='\t')
 matrix1.set_index('miRNA',inplace = True)
 matrix1.drop('Unnamed: 13',axis = 1, inplace = True)
@@ -69,11 +68,6 @@ corr_matrix1 = pd.DataFrame(np.array(Pearson_Correlation(matrix1)), index = matr
 print("")
 print('Pearson Correlated 12 X 12 matrix of matrix1')
 print(corr_matrix1)
-
-
-# QUESTION 2:
-
-
 
 matrix2 = pd.read_csv("matrix2.txt",sep = '\t')
 matrix2.set_index('miRNA',inplace = True)
@@ -84,13 +78,10 @@ print("")
 print('Pearson Correlated 12 X 12 matrix of matrix2')
 print(corr_matrix2)
 
-
-
 mat1_2corr = pd.DataFrame(np.array(Pearson_Correlation(matrix1,matrix2)), index = matrix1.columns, columns = matrix2.columns)
 print("")
 print('Pearson Correlated 12 X 12 matrix of matrix1 and matrix2')
 print(mat1_2corr)
-
 
 f,(ax1,ax2,ax3) = plt.subplots(1,3,sharey=True, figsize= (15,5))
 g1 = sns.heatmap(corr_matrix1, ax= ax1).set(title = 'Matrix1 Corr' )
