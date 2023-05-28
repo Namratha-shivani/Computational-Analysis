@@ -4,7 +4,7 @@ import os
 from sklearn.linear_model import LinearRegression
 
 os.chdir(os.getcwd())
-# data contains all the 3 time courses in a single file, first read the file
+# DecayTimecourse.txt contains 3 timecourses of RNAtranscript half lives
 data = pd.read_csv('DecayTimecourse.txt',sep= '\t')
 
 # Splitting the data and natural log transformation of the data
