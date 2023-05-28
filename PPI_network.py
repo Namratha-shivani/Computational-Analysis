@@ -11,6 +11,10 @@ from scipy.stats import ranksums
 
 os.chdir(os.getcwd())
 # read the files 
+
+# Humann-PPI.txt file contains rows of proteins one row of unique proteins with their connections in the other rows
+# Protein-list1 and Protein-list2.txt contain list of proteins to find the shortest paths among them
+
 PPI = pd.read_table('Human-PPI.txt')
 p1 = pd.read_csv('protein-list1.txt', header = None) 
 p2 = pd.read_csv('protein-list2.txt',header = None) 
