@@ -6,7 +6,7 @@ os.chdir(os.getcwd())
 
 # using the count matrix calculate the weight matrix
 
-counts_matrix = pd.read_csv('argR-counts-matrix.txt', sep = '\t', header = None, index_col=0)
+counts_matrix = pd.read_csv('read the Matrix text file', sep = '\t', header = None, index_col=0)
 counts_matrix.drop(1, inplace = True, axis = 1)
 counts_matrix.columns = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
 
@@ -28,11 +28,12 @@ Weight_matrix = np.log2(Pseudocount_matrix / 0.25)
 print('The Weight Matrix is : ')
 print(Weight_matrix)
 
-#Using the wieght matrix identify the top biinding sites in E.COLI
+#Using the wieght matrix identify the top binding site
 
-E_coli = pd.read_csv('E_coli_K12_MG1655.400_50', header= None, sep= '\\')
-E_coli.dropna(axis = 1, how = 'all', inplace = True)
-E_coli.columns = ['gene_id','sequence']
+file = pd.read_csv('fasta file to find the motifs', header= None, sep= '\\')
+# drop the rows with all NA's and replace the column names
+file.dropna(axis = 1, how = 'all', inplace = True)
+file.columns = ['gene_id','sequence']
 
 def top_genes(data):
   position_matrix = Weight_matrix.transpose()
@@ -62,5 +63,5 @@ def top_genes(data):
 
 
 print('Top 30 gene_ids : ')
-for i in top_genes(E_coli):
+for i in top_genes(file):
     print(i)
