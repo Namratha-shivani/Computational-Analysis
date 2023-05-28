@@ -10,13 +10,13 @@ from scipy.stats import ranksums
 
 
 os.chdir(os.getcwd())
-# read the files
+# read the files 
 PPI = pd.read_table('Human-PPI.txt')
-p1 = pd.read_csv('protein-list1.txt', header = None)
-p2 = pd.read_csv('protein-list2.txt',header = None)
+p1 = pd.read_csv('protein-list1.txt', header = None) 
+p2 = pd.read_csv('protein-list2.txt',header = None) 
 
 # change the name of the columns and convert the network to dataframe
-PPI_network = {'Official_symbol_A': PPI.index, 'Official_symbol_B': PPI['OFFICIAL_SYMBOL_A       OFFICIAL_SYMBOL_B']}
+PPI_network = {'Protein_A': PPI.index, 'Protein_B': PPI.columns[0]}
 PPI_network = pd.DataFrame(PPI_network)
 PPI_network.index = [i for i in range(len(PPI_network))]
 
