@@ -8,12 +8,12 @@ Dependencies : pandas, numpy, matplotlib, seaborn, scikit-learn, gzip, shutil,sc
 
 Installation : 
 >python -m pip install pandas
-              >python -m pip install numpy
-              >python -m pip install matplotlib
-              >python -m pip install seaborn
-              >python -m pip install scikit-learn
-              >python -m pip install scipy 
-              >python -m pip install matplotlib
+>python -m pip install numpy
+>python -m pip install matplotlib
+>python -m pip install seaborn
+>python -m pip install scikit-learn
+>python -m pip install scipy 
+>python -m pip install matplotlib
                       
                       
                      
