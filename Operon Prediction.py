@@ -6,6 +6,8 @@ import shutil
 
 os.chdir(os.getcwd())
 
+# The function first unzips the files if needed and then calculates the operons with intergenic distance less than 50
+
 def predictOperon(y):
     
     def fileread(x):
@@ -76,30 +78,3 @@ def predictOperon(y):
         return operons(file)
     
 
-print('E.COLI : ')
-print("Operons in E.coli are:\n\n{}\n\nNumber of Operons in E.coli are: {}".format(predictOperon('E_coli_K12_MG1655.ptt')[0], predictOperon('E_coli_K12_MG1655.ptt')[1])) #2669
-print('')
-print("HALOBACTERIUM : ")
-print("Operons in Halobacterium are:\n\n{}\n\nNumber of Operons in Halobacterium are: {}".format(predictOperon('Halobacterium_NRC1.ptt')[0], predictOperon('Halobacterium_NRC1.ptt')[1])) #1464
-print('')
-print('SYNECHOCYSTIS : ')
-print("Operons in Synechocystis are:\n\n{}\n\nNumber of Operons in Synechocystis are: {}".format(predictOperon('Synechocystis_PCC6803_uid159873.ptt')[0], predictOperon('Synechocystis_PCC6803_uid159873.ptt')[1])) #2521
-print('')
-print('B_SUBTILIS : ')
-print("Operons in B_subtilis are:\n\n{}\n\nNumber of Operons in B_subtilis are: {}".format(predictOperon('B_subtilis_168.ptt')[0], predictOperon('B_subtilis_168.ptt')[1])) #2662  
-print('')  
-print('CROP_MICROBIOME : ')
-print("Operons in Crop_Microbiome are:\n\n{}\n\nNumber of Operons in Crop_Microbiome are: {}".format(predictOperon('2088090036.gff')[0], predictOperon('2088090036.gff')[1])) #12108
- 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
